@@ -35,30 +35,31 @@ path_txt = "movies_ordenadas.txt"
 
 def elegir_opcion(opcion, lista_dic_transformadex, lista_ordenada):
     salir = None
-    match opcion:
-        case 1:
-            os.system("cls")
-            lista_csv= formatear_csv(path_csv)
-            lista_dic_transformadex = lista_a_diccionario(path_csv, lista_csv, "id_peli", "titulo", "genero", "duracion")
-        case 2:
-            os.system("cls")
-            imprimir_lista(lista_dic_transformadex)
-        case 3:
-            os.system("cls")
-            guardar_tiempos(lista_dic_transformadex, path_csv)
-        case 4:
-            os.system("cls")
-            filtrar_por_tipo(path_csv_copia, lista_dic_transformadex, "genero")
-        case 5:
-            os.system("cls")
-            lista_ordenada = mostrar_duraciones_en_orden(lista_dic_transformadex, "genero", "duracion")
-        case 6:
-            os.system("cls")
-            guardar_peliculas(path_txt, lista_ordenada)
-        case 7:
-            os.system("cls")
-            salir = input("Seguro que desea salir? s/n: ")
-            pass
+
+    if opcion == 1:
+        os.system("cls")
+        lista_csv= formatear_csv(path_csv)
+        lista_dic_transformadex = lista_a_diccionario(path_csv, lista_csv, "id_peli", "titulo", "genero", "duracion")
+    elif opcion == 2:
+        os.system("cls")
+        imprimir_lista(lista_dic_transformadex)
+    elif opcion == 3:
+        os.system("cls")
+        guardar_tiempos(lista_dic_transformadex, path_csv)
+    elif opcion == 4:
+        os.system("cls")
+        filtrar_por_tipo(path_csv_copia, lista_dic_transformadex, "genero")
+    elif opcion == 5:
+        os.system("cls")
+        lista_ordenada = mostrar_duraciones_en_orden(lista_dic_transformadex, "genero", "duracion")
+    elif opcion == 6:
+        os.system("cls")
+        guardar_peliculas(path_txt, lista_ordenada)
+    elif opcion == 7:
+        os.system("cls")
+        salir = input("Seguro que desea salir? s/n: ")
+        pass
+
     return salir, lista_dic_transformadex, lista_ordenada
 
 while True:
